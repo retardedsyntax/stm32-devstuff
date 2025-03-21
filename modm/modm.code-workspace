@@ -1,0 +1,24 @@
+{
+    "folders": [
+      {
+        "name": "Projects",
+        "path": "/workspace/projects"
+      },
+      {
+        "name": "modm",
+        "path": "/workspace/ext/modm"
+      },
+      {
+        "name": "Devcontainer",
+        "path": "/workspace/.devcontainer"
+      },
+      {
+        "name": "VSCode Settings",
+        "path": "/workspace/.vscode"
+      },
+      {
+        "name": "Docker",
+        "path": "/workspace/docker"
+      }
+    ]
+  }

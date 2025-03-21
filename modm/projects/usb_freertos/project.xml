@@ -1,0 +1,22 @@
+<library>
+  <repositories>
+    <repository><path>../../ext/modm/repo.lb</path></repository>
+  </repositories>
+  <options>
+    <option name="modm:target">stm32f429zit6</option>
+    <option name="modm:build:project.name">usb_freertos</option>
+    <option name="modm:tinyusb:config">device.cdc</option>
+  </options>
+  <modules>
+    <module>modm:board:disco-f429zi</module>
+    <module>modm:ide:vscode</module>
+    <module>modm:build:scons</module>
+    <module>modm:freertos</module>
+    <module>modm:processing:rtos</module>
+    <module>modm:processing:timer</module>
+    <module>modm:tinyusb</module>
+  </modules>
+  <collectors>
+    <collect name="modm:build:cppdefines">CFG_TUSB_DEBUG=2</collect>
+  </collectors>
+</library>

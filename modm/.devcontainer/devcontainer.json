@@ -1,0 +1,61 @@
+{
+    "name": "modm-docker",
+    "build": {
+        // Sets the run context to one level up instead of the .devcontainer folder.
+        "context": "..",
+        "dockerfile": "../docker/Dockerfile"
+    },
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "git": "os-provided",
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+        //"ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {}
+    },
+    //"postStartCommand": "bash",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "akiramiyakoda.cppincludeguard",
+                "bierner.markdown-preview-github-styles",
+                "cschlosser.doxdocgen",
+                "dan-c-underwood.arm",
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "jeff-hykin.better-cpp-syntax",
+                "marus25.cortex-debug",
+                "mcu-debug.debug-tracker-vscode",
+                "mcu-debug.memory-view",
+                "mcu-debug.rtos-views",
+                "mhutchie.git-graph",
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-vscode-remote.remote-containers",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.makefile-tools",
+                "mutantdino.resourcemonitor",
+                "xaver.clang-format",
+                "zixuanwang.linkerscript",
+                "timonwong.shellcheck",
+                "tyriar.sort-lines",
+                "mkhl.shfmt",
+                //"stmicroelectronics.stm32-vscode-extension",
+            ]
+        }
+    },
+    "privileged": true,
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+        "source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+    ],
+    "runArgs": [
+        "--add-host=host.docker.internal:host-gateway"
+        //"--device=/dev/stlinkv2_3:/dev/stlinkv2_3",
+        //"--device-cgroup-rule='c 188:* rmw'"
+    ],
+}

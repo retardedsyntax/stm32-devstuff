@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Copyright (c) 2021, Odin Holmes
+#
+# This file is part of the modm project.
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+# -----------------------------------------------------------------------------
+
+
+def init(module):
+    module.name = ":driver:ds3232"
+    module.description = """\
+# DS3232/DS3231
+
+Battery-Backed, Extremely Accurate I2C RTC with Integrated Crystal and SRAM
+
+[DS3232 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ds3232.pdf)
+
+"""
+
+
+def prepare(module, options):
+    module.depends(
+        ":architecture:i2c.device",
+        ":architecture:register",
+        ":processing:resumable")
+    return True
+
+
+def build(env):
+    env.outbasepath = "modm/src/modm/driver/rtc"
+    env.copy("ds3232.hpp")
+    env.copy("ds323_impl.hpp")
