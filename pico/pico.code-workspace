@@ -1,20 +1,8 @@
 {
     "folders": [
       {
-        "name": "Root",
+        "name": "Workspace",
         "path": "/workspace"
-      },
-      {
-        "name": "Devcontainer",
-        "path": "/workspace/.devcontainer"
-      },
-      {
-        "name": "VSCode Settings",
-        "path": "/workspace/.vscode"
-      },
-      {
-        "name": "Docker",
-        "path": "/workspace/docker"
       }
     ]
   }
