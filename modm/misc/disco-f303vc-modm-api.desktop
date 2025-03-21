@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=docs.modm.io
+Comment="modm API documentation for DISCO-F303VC" 
+Exec=firefox https://docs.modm.io/develop/api/disco-f303vc/modules.html
+Icon=firefox
+Terminal=false
+Type=Application

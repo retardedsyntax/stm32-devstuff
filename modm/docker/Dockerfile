@@ -23,7 +23,7 @@ RUN apt-get -y update \
 
 # Install some basic tools
 RUN apt-get -y update \
-    && apt-get -y upgrade \
+    && apt-get install -y --no-install-recommends \
     iproute2 iputils-ping net-tools hostname traceroute \
     curl wget ca-certificates \
     bzip2 unzip xz-utils tar \
@@ -146,6 +146,8 @@ ENV PYTHONPATH="/opt/venv/lib/python3.12/site-packages${PYTHONPATH:+:$PYTHONPATH
 ### Builder image ###
 
 FROM sdk AS builder
+ARG DEBIAN_FRONTEND=noninteractive
+SHELL ["/bin/bash", "-l", "-eo", "pipefail", "-c"]
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
